@@ -20,9 +20,8 @@ ggplot(data = mpg) +
 # and fuel efficiency (hwy) which means cars with big engines use more fuel
 
 # REUSABLE TEMPLATE FOR MAKING GRAPHS WITH ggplot2
-
-ggplot(data = <DATASET>) +
-  <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>))
+# ggplot(data = <DATASET>) +
+#   <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>))
 
 # -------------------------------------------------------------------------
 # -------------------------------------------------------------------------
@@ -36,4 +35,26 @@ ggplot(data = mpg)
 ggplot(data = mpg) +
   geom_point(mapping = aes(x = cyl, y = hwy))
 # why is the above plot not useful?
+
+# map the colors of your points in the class variable to reveal the class of each car:
+ggplot2::ggplot(data = mpg) +
+  geom_point(mapping = aes(x = displ, y = hwy, color = class))
+
+# the outliers are sports cars (2 seaters) with big engines but small bodies
+# which improves their gas mileage
+
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = displ, y = hwy, size = class))
+# warning: using size for a discrete variable is not advised
+
+#top
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = displ, y = hwy, alpha = class))
+# warning: using alpha for a discrete variable is not advised
+
+#bottom
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = displ, y = hwy, shape = class))
+# warning: can only plot six shapes at a time;
+# additional groups will go unplotted
 
