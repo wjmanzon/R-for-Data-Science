@@ -13,3 +13,5 @@ tidyverse_update()
 # world development, and baseball
 install.packages(c("nycflights13","gapminder","Lahman"))
 
+# restart R session
+.rs.restartR()
