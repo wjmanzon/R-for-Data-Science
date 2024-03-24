@@ -1,3 +1,5 @@
+# AESTHETIC MAPPINGS
+
 # Do cars with big engines use more fuel 
 # than cars with small engines?
 
@@ -23,8 +25,6 @@ ggplot(data = mpg) +
 # ggplot(data = <DATASET>) +
 #   <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>))
 
-# -------------------------------------------------------------------------
-# -------------------------------------------------------------------------
 # Exercises
 
 ggplot(data = mpg)
@@ -57,4 +57,60 @@ ggplot(data = mpg) +
   geom_point(mapping = aes(x = displ, y = hwy, shape = class))
 # warning: can only plot six shapes at a time;
 # additional groups will go unplotted
+
+# make all points in plot blue
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = displ, y = hwy), color = "blue")
+# it doesn't convey information about a variable but only
+# changes the appearance of the plot
+
+# what's wrong with the code below?
+# why is the color not blue?
+ggplot(data = mpg) +
+  geom_point(
+    mapping = aes(x = displ, y = hwy, color = "blue")
+  )
+
+ggplot(data = mpg)
+  + geom_point(mapping = aes(x = displ, y = hwy))
+# warning: don't put the + on the new line
+
+?geom_point
+# if you need to learn more about a function
+
+# -------------------------------------------------------------------------
+# -------------------------------------------------------------------------
+# FACETS
+# Facets are subplots that each display one subset of data
+
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = displ, y = hwy)) +
+  facet_wrap(~ class, nrow = 2)
+
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = displ, y = hwy)) +
+  facet_grid(drv ~ cyl)
+
+# what do the empty cells in a plot with facet_grid(drv ~ cyl)
+# mean? How do they relate to this plot?
+
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = drv, y = cyl))
+
+?drv
+
+view(mpg)
+
+# what does . do?
+ggplot(data = mpg) +
+   geom_point(mapping = aes(x = displ, y = hwy)) +
+   facet_grid(drv ~ .)
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = displ, y = hwy)) +
+  facet_grid(. ~ cyl)
+
+# the first faceted plot in this section
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = displ, y = hwy)) +
+  facet_wrap(~ class, nrow = 2)
 
