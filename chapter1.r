@@ -117,3 +117,9 @@ ggplot(data = mpg) +
 # what are advantages to using faceting instead of the color aesthetic?
 # what are the disadvantages?
 # how might the balance change if you had a larger dataset?
+
+
+# -------------------------------------------------------------------------
+# -------------------------------------------------------------------------
+# GEOMETRIC OBJECTS
+
