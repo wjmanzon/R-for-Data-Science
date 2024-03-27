@@ -122,4 +122,26 @@ ggplot(data = mpg) +
 # -------------------------------------------------------------------------
 # -------------------------------------------------------------------------
 # GEOMETRIC OBJECTS
+# left
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = displ, y = hwy))
 
+ggplot(data = mpg) +
+  geom_smooth(mapping = aes(x = displ, y = hwy))
+
+# setting line type of a line
+ggplot(data = mpg) +
+  geom_smooth(mapping = aes(x = displ, y = hwy, linetype = drv))
+# the above code separates the cars into three lines based on their drv values
+
+ggplot(data = mpg) +
+  geom_smooth(mapping = aes(x = displ, y = hwy))
+
+ggplot(data = mpg) +
+  geom_smooth(mapping = aes(x = displ, y = hwy, group = drv))
+
+ggplot(data = mpg) +
+  geom_smooth(
+    mapping = aes(x = displ, y = hwy, color = drv), 
+    show.legend = FALSE
+  )
