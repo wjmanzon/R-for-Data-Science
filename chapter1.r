@@ -16,7 +16,7 @@ mpg
 # on the y-axis:
 
 ggplot(data = mpg) +
-  geom_point(mapping = aes(x = displ, y = hwy))
+  geom_point(mapping = aes(x = displ, y = hwy)) #rplot1
 
 # the plot shows negative relationship between engine size (displ)
 # and fuel efficiency (hwy) which means cars with big engines use more fuel
@@ -114,6 +114,7 @@ ggplot(data = mpg) +
   geom_point(mapping = aes(x = displ, y = hwy)) +
   facet_wrap(~ class, nrow = 2)
 
+
 # what are advantages to using faceting instead of the color aesthetic?
 # what are the disadvantages?
 # how might the balance change if you had a larger dataset?
@@ -141,7 +142,21 @@ ggplot(data = mpg) +
   geom_smooth(mapping = aes(x = displ, y = hwy, group = drv))
 
 ggplot(data = mpg) +
+  geom_point(aes( y = hwy, x = displ, color = drv)) +
   geom_smooth(
-    mapping = aes(x = displ, y = hwy, color = drv), 
+    aes( y = hwy, x = displ, color = drv), 
     show.legend = FALSE
   )
+
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = displ, y = hwy)) +
+  geom_smooth(mapping = aes(x = displ, y = hwy))
+#RPlot24 - code duplicate, bad example, hard to update
+
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
+  geom_point() +
+  geom_smooth()
+# the above example avoids this repetition by passing a set of mappings to ggplot()
+# ggplot2 will treat these mappings as global mappings that apply to each geom in the graph
+
+
