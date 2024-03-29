@@ -177,5 +177,25 @@ ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
 #RPlot26. You can use the same idea to specify different data for each layer.
 # Here, the smooth lin displays just a subset of the mpg dataset, the subcompact cars
 
+ggplot(data = diamonds) +
+  geom_bar(mapping = aes(x = cut))
+#RPlot27
 
+ggplot(data = diamonds) +
+  stat_count(mapping = aes(x = cut))
+#RPlot28
+# You can use stats and geoms interchangeably
+# This works because geom has a default stat and every stat has a default geom
 
+demo <- tribble(
+  ~a, ~b,
+  "bar_1", 20,
+  "bar_2", 30,
+  "bar_3", 40
+)
+
+ggplot(data = demo) +
+  geom_bar(
+    mapping = aes(x = a, y = b), stat = "identity"
+  )
+#RPlot29
