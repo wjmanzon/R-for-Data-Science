@@ -159,4 +159,23 @@ ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
 # the above example avoids this repetition by passing a set of mappings to ggplot()
 # ggplot2 will treat these mappings as global mappings that apply to each geom in the graph
 
+# if you place mappings in a geom function, ggplot2 will treat them as local mappings
+# for the layer. It will use these mappings to extend or overwrite the global mappings
+# FOR THAT LAYER ONLY. This makes it possible to display different aethetics in different layers:
+
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
+  geom_point(mapping = aes(color = class)) +
+  geom_smooth()
+#RPlot25
+
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
+  geom_point(mapping = aes(color = class)) +
+  geom_smooth(
+    data = filter(mpg, class =="subcompact"),
+    se = FALSE
+  )
+#RPlot26. You can use the same idea to specify different data for each layer.
+# Here, the smooth lin displays just a subset of the mpg dataset, the subcompact cars
+
+
 
