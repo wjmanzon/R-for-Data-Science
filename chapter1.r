@@ -307,7 +307,25 @@ ggplot(nz, aes(long, lat, group = group)) +
   geom_polygon(fill = "white", color = "black")
 #RPlot42
 
+ggplot(nz, aes(long, lat, group)) +
+  geom_polygon(fill = "white", color = "black") +
+  coord_quickmap()
+#RPlot43 - messed up
 
+# coord_polar() uses polar coordinates
+# they reveal an interesting connection between a bar chart and a coxcomb chart
+
+bar <- ggplot(data = diamonds) +
+  geom_bar(
+    mapping = aes(x = cut, fill = cut),
+    show.legend = FALSE,
+    width = 1
+  ) +
+  theme(aspect.ratio = 1) +
+  labs(x = NULL, y = NULL)
+
+bar + coord_flip() #RPlot44
+bar + coord_polar() #RPlot45
 
 
 
