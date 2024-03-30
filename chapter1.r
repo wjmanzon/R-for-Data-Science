@@ -299,7 +299,13 @@ ggplot(data = mpg, mapping = aes(x = class, y = hwy)) +
   coord_flip()
 #RPlot41
 
+# coord_quickmap() sets the aspect ratio correctly for maps
 
+nz <- map_data("nz")
+
+ggplot(nz, aes(long, lat, group = group)) +
+  geom_polygon(fill = "white", color = "black")
+#RPlot42
 
 
 
