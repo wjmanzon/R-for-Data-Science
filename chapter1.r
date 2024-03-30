@@ -213,3 +213,34 @@ ggplot(data = diamonds) +
     fun.ymax = max,
     fun.y = median
   )
+#RPlot31
+
+# -------------------------------------------------------------------------
+# -------------------------------------------------------------------------
+# POSITION ADJUSTMENTS
+
+# color a bar chart using aesthetic of fill
+ggplot(data = diamonds) +
+  geom_bar(mapping = aes(x = cut, color = cut))
+#RPlot32
+
+ggplot(data = diamonds) +
+  geom_bar(mapping = aes(x = cut, fill = cut))
+#RPlot33
+
+# if you map fill aesthetic to another variable like clarity,
+# the bars are automatically stacked:
+ggplot(data = diamonds) +
+  geom_bar(mapping = aes(x = cut, fill = clarity))
+#RPlot34
+
+# bad example
+# position = "identity" will place each object exactly 
+# where it falls into the context of the graph
+ggplot(data = diamonds,
+       mapping = aes(x = cut, fill = clarity)
+) +
+  geom_bar(alpha = 1/5, position = "identity")
+
+
+  
