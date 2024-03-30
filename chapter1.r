@@ -199,3 +199,17 @@ ggplot(data = demo) +
     mapping = aes(x = a, y = b), stat = "identity"
   )
 #RPlot29
+
+ggplot(data = diamonds) +
+  geom_bar(
+    mapping = aes(x = cut, y = ..prop.., group = 1)
+  )
+#RPlot30
+
+ggplot(data = diamonds) +
+  stat_summary(
+    mapping = aes(x = cut, y = depth),
+    fun.ymin = min,
+    fun.ymax = max,
+    fun.y = median
+  )
