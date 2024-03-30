@@ -328,7 +328,29 @@ bar + coord_flip() #RPlot44
 bar + coord_polar() #RPlot45
 
 
+# -------------------------------------------------------------------------
+# -------------------------------------------------------------------------
+# summary
 
+# ggplot(data = <DATA>) +
+#   <GEOM_FUNCTION>(
+#     mapping = aes(<MAPPINGS>),
+#     stat = <STAT>,
+#     position = <POSITION>
+# ) +
+# <COORDINATE_FUNCTION> +
+# <FACET_FUNCTION>
+#
+# These seven parameters in the template
+# compose the GRAMMAR OF THE GRAPHICS,
+# a formal system for building plots
+#
+# How to build a basic plot from scratch?
+#
+# 1. Begin with the <diamonds> data set
+# 2. Compute counts for each cut value with the stat_count()
+# 3. Represent each observation with a bar
+# 4. Map the fill of each bar to the ..count.. variable
 
 
 
