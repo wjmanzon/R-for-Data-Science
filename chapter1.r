@@ -284,7 +284,20 @@ ggplot(data = mpg) +
 #RPlot39
 
 
+# -------------------------------------------------------------------------
+# -------------------------------------------------------------------------
+# COORDINATE SYSTEMS
 
+ggplot(data = mpg, mapping = aes(x = class, y = hwy)) +
+  geom_boxplot()
+#RPlot40
+
+# coord_flip() switches the x and y axes. Useful if you want horizontal boxplots
+
+ggplot(data = mpg, mapping = aes(x = class, y = hwy)) +
+  geom_boxplot()+
+  coord_flip()
+#RPlot41
 
 
 
