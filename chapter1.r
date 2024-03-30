@@ -237,10 +237,49 @@ ggplot(data = diamonds) +
 # bad example
 # position = "identity" will place each object exactly 
 # where it falls into the context of the graph
+# To see the overlapping, we either need to make the bars
+# slightly transparent by setting alpha to a small
+# value, or completely transparent by setting fill = NA
 ggplot(data = diamonds,
        mapping = aes(x = cut, fill = clarity)
 ) +
   geom_bar(alpha = 1/5, position = "identity")
+#RPlot35
 
+ggplot(
+  data = diamonds,
+  mapping = aes(x = cut, color = clarity)
+) +
+  geom_bar(fill = NA, position = "identity")
+#RPlot36
 
-  
+# position = "fill" works like stacking, but makes each set of stacked
+# bars the same height
+ggplot(data = diamonds) +
+  geom_bar(
+    mapping = aes(x = cut, fill = clarity),
+    position = "fill"
+  )
+#RPlot37
+
+# position = "dodge" places overlapping objects directly beside one another
+# making it easier to compare individual values
+ggplot(data = diamonds) +
+  geom_bar(
+    mapping = aes(x = cut, fill = clarity),
+    position = "dodge"
+  )
+#RPlot38
+
+# another type of adjustment that's not useful for bar charts
+# but useful for scatterplots
+# to avoid scatterplot gridding, we can set the position adjustment
+# to "jitter" position = "jitter"
+
+ggplot(data = mpg) +
+  geom_point(
+    mapping = aes(x = displ, y = hwy),
+    position = "jitter"
+  )
+#RPlot39
+
