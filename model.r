@@ -57,3 +57,4 @@ predict(m,test, type="response")
 ggplot(oil, aes(x = oilChanges, y = totalCost)) +
   geom_point() +
   stat_smooth(method = "lm", col = "red")
+#Rplot51
